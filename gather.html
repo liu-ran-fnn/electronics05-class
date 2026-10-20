@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="style.css">
 <style>
 /* ===== 留言区：GitHub Issues 版，纯文字 ===== */
-.gh-note{background:#eaf2f9;border:1px solid #dce6f0;border-radius:10px;padding:14px 16px;margin-bottom:18px;font-size:13px;color:#4a5b6d;line-height:1.7}
-.gh-note code{background:#fff;border:1px solid #dce6f0;border-radius:4px;padding:1px 6px;font-size:12px;color:#174a7e}
 .gh-field{margin-bottom:16px}
 .gh-field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#192a3b}
 .gh-field input,.gh-field textarea{width:100%;padding:10px 12px;border:1px solid #dce6f0;border-radius:8px;font:inherit;font-size:14px;background:#fff;color:#192a3b;box-sizing:border-box}
@@ -33,12 +31,11 @@
 .gh-avatar{width:28px;height:28px;border-radius:50%;background:#174a7e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0}
 .gh-author{font-weight:600;font-size:14px;color:#192a3b}
 .gh-time{font-size:12px;color:#68798b}
-.gh-tag{margin-left:auto;font-size:11px;background:#eaf2f9;color:#174a7e;padding:2px 8px;border-radius:999px;border:1px solid #dce6f0}
 .gh-body{font-size:14px;line-height:1.75;color:#3a4a5a;white-space:pre-wrap;word-break:break-word}
 .gh-empty,.gh-loading{color:#68798b;font-size:13px;padding:16px 0;text-align:center}
 .gh-open{display:inline-block;margin-top:12px;font-size:13px;color:#174a7e}
 .gh-open:hover{text-decoration:underline}
-@media(max-width:760px){.gh-item-head{gap:8px}.gh-tag{margin-left:0}}
+@media(max-width:760px){.gh-item-head{gap:8px}}
 </style>
 </head>
 <body id="top">
@@ -69,11 +66,6 @@
       <h2 id="comments-title">留言与分享</h2>
       <p class="community-intro">写下近况、学习心得或活动想法。提交后会生成一条留言草稿，在 GitHub 上确认发布即可全班可见。</p>
 
-      <div class="gh-note">
-        留言以 <strong>GitHub Issue</strong> 的形式保存，公开可见、长期留存。
-        点「生成留言」后会跳转到 GitHub 页面，确认内容再发布 —— 这样留言就正式进入下面的留言墙。
-      </div>
-
       <form id="gh-form">
         <div class="gh-field">
           <label for="gh-name">怎么称呼你</label>
@@ -84,11 +76,6 @@
           <label for="gh-content">说点什么</label>
           <textarea id="gh-content" maxlength="1200" rows="6" required placeholder="分享学习心得、班级建议或最近的趣事……"></textarea>
           <div class="hint">最多 1200 字，纯文字内容。</div>
-        </div>
-
-        <div class="gh-field">
-          <label for="gh-tag">留言类型</label>
-          <input id="gh-tag" maxlength="20" value="班级留言" placeholder="班级留言 / 学习分享 / 活动通知">
         </div>
 
         <div class="gh-preview" id="gh-preview"><strong>预览：</strong>填写昵称和内容后，这里会显示留言发布后的样子。</div>
@@ -149,7 +136,6 @@ const API_URL    = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issu
 const form    = document.getElementById('gh-form');
 const nameEl  = document.getElementById('gh-name');
 const contEl  = document.getElementById('gh-content');
-const tagEl   = document.getElementById('gh-tag');
 const prevEl  = document.getElementById('gh-preview');
 const msgEl   = document.getElementById('gh-msg');
 const listEl  = document.getElementById('gh-list');
@@ -159,18 +145,16 @@ const subBtn  = document.getElementById('gh-submit');
 function updatePreview() {
   const n = nameEl.value.trim();
   const c = contEl.value.trim();
-  const t = tagEl.value.trim() || '班级留言';
   if (!c) {
     prevEl.innerHTML = '<strong>预览：</strong>填写昵称和内容后，这里会显示留言发布后的样子。';
     return;
   }
   const initial = n ? n.slice(0, 1).toUpperCase() : '友';
   prevEl.innerHTML =
-    `<strong>预览：</strong>\n${initial}　${n || '未署名'}　·　${t}\n\n${c}`;
+    `<strong>预览：</strong>\n${initial}　${n || '未署名'}\n\n${c}`;
 }
 nameEl.addEventListener('input', updatePreview);
 contEl.addEventListener('input', updatePreview);
-tagEl.addEventListener('input', updatePreview);
 
 /* ============ 生成留言（跳转 GitHub 预填 Issue）============ */
 form.addEventListener('submit', (event) => {
@@ -180,7 +164,6 @@ form.addEventListener('submit', (event) => {
 
   const n = nameEl.value.trim();
   const c = contEl.value.trim();
-  const t = tagEl.value.trim() || '班级留言';
 
   if (!c) {
     msgEl.textContent = '请先写下留言内容。';
@@ -193,10 +176,9 @@ form.addEventListener('submit', (event) => {
     return;
   }
 
-  const title = `[${t}] ${n}`;
+  const title = `${n} 的留言`;
   const body =
     `**称呼：** ${n}\n` +
-    `**类型：** ${t}\n` +
     `---\n\n` +
     `${c}\n\n` +
     `---\n` +
@@ -242,12 +224,7 @@ function renderIssue(issue) {
   when.className = 'gh-time';
   when.textContent = new Date(issue.created_at).toLocaleString('zh-CN', { hour12: false });
 
-  const tag = document.createElement('span');
-  tag.className = 'gh-tag';
-  const m = issue.title.match(/^\[(.+?)\]/);
-  tag.textContent = m ? m[1] : '留言';
-
-  head.append(av, who, when, tag);
+  head.append(av, who, when);
   card.append(head);
 
   const body = document.createElement('div');
