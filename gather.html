@@ -279,6 +279,11 @@ async function loadIssues() {
     const res = await fetch(`${API_URL}?state=open&per_page=50`, {
       headers: { 'Accept': 'application/vnd.github+json' }
     });
+    if (res.status === 403 || res.status === 429) {
+      // GitHub 匿名 API 限流：降级为引导链接，不让页面留白
+      showRateLimited();
+      return;
+    }
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const issues = await res.json();
     const list = issues.filter((i) => !i.pull_request);
@@ -290,8 +295,34 @@ async function loadIssues() {
     }
     for (const issue of list) listEl.append(renderIssue(issue));
   } catch (e) {
-    listEl.innerHTML = '<p class="gh-empty">留言加载失败，请稍后刷新重试。</p>';
+    listEl.innerHTML =
+      '<p class="gh-empty">留言暂时无法加载，可能是网络波动。' +
+      '<br>你仍然可以直接到 GitHub 上查看全部留言 ↗</p>';
+    const link = document.createElement('a');
+    link.className = 'gh-open';
+    link.href = `${REPO_URL}/issues`;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = '前往 GitHub 查看全部留言 ↗';
+    listEl.append(link);
   }
+}
+
+function showRateLimited() {
+  listEl.innerHTML = '';
+  const box = document.createElement('div');
+  box.className = 'gh-item';
+  const p = document.createElement('p');
+  p.className = 'gh-body';
+  p.textContent = 'GitHub 接口暂时限制了访问频率，留言墙需要稍等一下才能显示。';
+  const link = document.createElement('a');
+  link.className = 'gh-open';
+  link.href = `${REPO_URL}/issues`;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.textContent = '直接前往 GitHub 查看全部留言 ↗';
+  box.append(p, link);
+  listEl.append(box);
 }
 
 document.getElementById('refresh-comments').addEventListener('click', loadIssues);
