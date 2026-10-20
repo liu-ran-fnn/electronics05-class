@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#174a7e">
+<meta name="description" content="安徽理工大学电子5班 —— 一起参与：留言与投稿说明。">
+<title>一起参与 · 安徽理工大学电子5班</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== 留言区：GitHub Issues 版，纯文字 ===== */
+.gh-note{background:#eaf2f9;border:1px solid #dce6f0;border-radius:10px;padding:14px 16px;margin-bottom:18px;font-size:13px;color:#4a5b6d;line-height:1.7}
+.gh-note code{background:#fff;border:1px solid #dce6f0;border-radius:4px;padding:1px 6px;font-size:12px;color:#174a7e}
+.gh-field{margin-bottom:16px}
+.gh-field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#192a3b}
+.gh-field input,.gh-field textarea{width:100%;padding:10px 12px;border:1px solid #dce6f0;border-radius:8px;font:inherit;font-size:14px;background:#fff;color:#192a3b;box-sizing:border-box}
+.gh-field input:focus,.gh-field textarea:focus{outline:none;border-color:#174a7e;box-shadow:0 0 0 3px rgba(23,74,126,.1)}
+.gh-field textarea{resize:vertical;min-height:110px;line-height:1.7}
+.gh-field .hint{font-size:12px;color:#68798b;margin-top:5px}
+.gh-preview{background:#f4f8fc;border:1px dashed #dce6f0;border-radius:8px;padding:12px;margin-bottom:16px;font-size:13px;color:#4a5b6d;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.gh-preview strong{color:#174a7e}
+.gh-msg{font-size:13px;margin:10px 0 0;min-height:20px}
+.gh-msg.err{color:#b4453c}
+.gh-msg.ok{color:#2b7a4b}
+.gh-btn{width:100%;padding:12px;border:0;border-radius:8px;background:#174a7e;color:#fff;font:inherit;font-size:14px;cursor:pointer;font-weight:600}
+.gh-btn:hover{background:#123a63}
+.gh-btn:disabled{background:#9db4c9;cursor:not-allowed}
+.gh-btn-ghost{background:#fff;color:#174a7e;border:1px solid #dce6f0;margin-top:10px}
+.gh-btn-ghost:hover{background:#eaf2f9}
+.gh-list{display:flex;flex-direction:column;gap:12px}
+.gh-item{background:#fff;border:1px solid #dce6f0;border-radius:10px;padding:14px 16px}
+.gh-item-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.gh-avatar{width:28px;height:28px;border-radius:50%;background:#174a7e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0}
+.gh-author{font-weight:600;font-size:14px;color:#192a3b}
+.gh-time{font-size:12px;color:#68798b}
+.gh-tag{margin-left:auto;font-size:11px;background:#eaf2f9;color:#174a7e;padding:2px 8px;border-radius:999px;border:1px solid #dce6f0}
+.gh-body{font-size:14px;line-height:1.75;color:#3a4a5a;white-space:pre-wrap;word-break:break-word}
+.gh-empty,.gh-loading{color:#68798b;font-size:13px;padding:16px 0;text-align:center}
+.gh-open{display:inline-block;margin-top:12px;font-size:13px;color:#174a7e}
+.gh-open:hover{text-decoration:underline}
+@media(max-width:760px){.gh-item-head{gap:8px}.gh-tag{margin-left:0}}
+</style>
+</head>
+<body id="top">
+<header class="topbar wrap">
+  <a class="brand" href="index.html" aria-label="返回首页"><span class="seal">电5</span><span>安徽理工大学 · 电子5班</span></a>
+  <nav class="nav" aria-label="主导航">
+    <a href="about.html">班级文化</a>
+    <a href="learn.html">学习共享</a>
+    <a href="journal.html">班级手记</a>
+    <a href="gather.html">一起参与</a>
+    <a class="nav-cta" href="index.html">返回首页 ↗</a>
+  </nav>
+</header>
+<main>
+<section class="subhero">
+  <div class="wrap subhero-inner">
+    <div class="breadcrumbs"><a href="index.html">首页</a>　/　一起参与</div>
+    <div class="eyebrow">04 / MAKE IT OURS</div>
+    <h1>下一条班级记忆，<br>等你来写。</h1>
+    <p>网站由同学共同维护。资料先确认出处与适用范围，照片先征得当事人同意；整理好后交给班级维护同学发布。</p>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="wrap community-layout">
+    <section class="comment-panel" aria-labelledby="comments-title">
+      <div class="kicker">CLASS COMMUNITY</div>
+      <h2 id="comments-title">留言与分享</h2>
+      <p class="community-intro">写下近况、学习心得或活动想法。提交后会生成一条留言草稿，在 GitHub 上确认发布即可全班可见。</p>
+
+      <div class="gh-note">
+        留言以 <strong>GitHub Issue</strong> 的形式保存，公开可见、长期留存。
+        点「生成留言」后会跳转到 GitHub 页面，确认内容再发布 —— 这样留言就正式进入下面的留言墙。
+      </div>
+
+      <form id="gh-form">
+        <div class="gh-field">
+          <label for="gh-name">怎么称呼你</label>
+          <input id="gh-name" maxlength="32" required placeholder="例如：小林">
+        </div>
+
+        <div class="gh-field">
+          <label for="gh-content">说点什么</label>
+          <textarea id="gh-content" maxlength="1200" rows="6" required placeholder="分享学习心得、班级建议或最近的趣事……"></textarea>
+          <div class="hint">最多 1200 字，纯文字内容。</div>
+        </div>
+
+        <div class="gh-field">
+          <label for="gh-tag">留言类型</label>
+          <input id="gh-tag" maxlength="20" value="班级留言" placeholder="班级留言 / 学习分享 / 活动通知">
+        </div>
+
+        <div class="gh-preview" id="gh-preview"><strong>预览：</strong>填写昵称和内容后，这里会显示留言发布后的样子。</div>
+
+        <button class="gh-btn" type="submit" id="gh-submit">生成留言 ↗</button>
+        <p class="gh-msg" id="gh-msg" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <aside class="community-aside">
+      <div class="kicker">OPEN INVITATION</div>
+      <h3>每一份认真，<br>都能让我们走得更远。</h3>
+      <p>尊重彼此、友善交流。请勿上传他人未同意公开的照片或视频，也不要发布个人敏感信息。</p>
+    </aside>
+
+    <section class="comments-feed" aria-labelledby="feed-title">
+      <div class="feed-heading">
+        <div>
+          <div class="kicker">FROM CLASSMATES</div>
+          <h2 id="feed-title">大家的留言</h2>
+        </div>
+        <button id="refresh-comments" class="filter" type="button">刷新</button>
+      </div>
+      <div id="gh-list" class="gh-list" aria-live="polite">
+        <p class="gh-loading">正在加载留言…</p>
+      </div>
+    </section>
+
+    <a class="btn btn-primary page-return" href="index.html">← 返回首页</a>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap footer-row">
+    <div>
+      <div class="footer-name">安徽理工大学 · 电子5班</div>
+      <small>相侵相碍，也彼此照亮。　|　班级文化与学习分享空间</small>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">首页</a>
+      <a href="about.html">班级文化</a>
+      <a href="learn.html">学习共享</a>
+      <a href="journal.html">班级手记</a>
+      <a href="gather.html">一起参与</a>
+    </div>
+    <a class="backtop" href="#top" aria-label="回到顶部">↑</a>
+  </div>
+</footer>
+
+<script>
+/* ============ 配置 ============ */
+const REPO_OWNER = 'liu-ran-fnn';
+const REPO_NAME  = 'electronics05-class';
+const REPO_URL   = `https://github.com/${REPO_OWNER}/${REPO_NAME}`;
+const API_URL    = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues`;
+
+/* ============ DOM ============ */
+const form    = document.getElementById('gh-form');
+const nameEl  = document.getElementById('gh-name');
+const contEl  = document.getElementById('gh-content');
+const tagEl   = document.getElementById('gh-tag');
+const prevEl  = document.getElementById('gh-preview');
+const msgEl   = document.getElementById('gh-msg');
+const listEl  = document.getElementById('gh-list');
+const subBtn  = document.getElementById('gh-submit');
+
+/* ============ 预览 ============ */
+function updatePreview() {
+  const n = nameEl.value.trim();
+  const c = contEl.value.trim();
+  const t = tagEl.value.trim() || '班级留言';
+  if (!c) {
+    prevEl.innerHTML = '<strong>预览：</strong>填写昵称和内容后，这里会显示留言发布后的样子。';
+    return;
+  }
+  const initial = n ? n.slice(0, 1).toUpperCase() : '友';
+  prevEl.innerHTML =
+    `<strong>预览：</strong>\n${initial}　${n || '未署名'}　·　${t}\n\n${c}`;
+}
+nameEl.addEventListener('input', updatePreview);
+contEl.addEventListener('input', updatePreview);
+tagEl.addEventListener('input', updatePreview);
+
+/* ============ 生成留言（跳转 GitHub 预填 Issue）============ */
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  msgEl.textContent = '';
+  msgEl.className = 'gh-msg';
+
+  const n = nameEl.value.trim();
+  const c = contEl.value.trim();
+  const t = tagEl.value.trim() || '班级留言';
+
+  if (!c) {
+    msgEl.textContent = '请先写下留言内容。';
+    msgEl.className = 'gh-msg err';
+    return;
+  }
+  if (!n) {
+    msgEl.textContent = '请填写你的称呼。';
+    msgEl.className = 'gh-msg err';
+    return;
+  }
+
+  const title = `[${t}] ${n}`;
+  const body =
+    `**称呼：** ${n}\n` +
+    `**类型：** ${t}\n` +
+    `---\n\n` +
+    `${c}\n\n` +
+    `---\n` +
+    `<sub>由电子5班班级小站留言区生成</sub>`;
+
+  const url = `${REPO_URL}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+
+  subBtn.disabled = true;
+  subBtn.textContent = '正在打开 GitHub…';
+  msgEl.textContent = '即将跳转到 GitHub 页面，确认内容后点「Submit new issue」即可发布。';
+  msgEl.className = 'gh-msg ok';
+
+  window.open(url, '_blank', 'noopener');
+  setTimeout(() => {
+    subBtn.disabled = false;
+    subBtn.textContent = '生成留言 ↗';
+  }, 1500);
+});
+
+/* ============ 读取留言墙 ============ */
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, (c) => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+}
+
+function renderIssue(issue) {
+  const card = document.createElement('article');
+  card.className = 'gh-item';
+
+  const head = document.createElement('div');
+  head.className = 'gh-item-head';
+
+  const av = document.createElement('span');
+  av.className = 'gh-avatar';
+  av.textContent = (issue.user?.login || '友').slice(0, 1).toUpperCase();
+
+  const who = document.createElement('span');
+  who.className = 'gh-author';
+  who.textContent = issue.user?.login || '同学';
+
+  const when = document.createElement('span');
+  when.className = 'gh-time';
+  when.textContent = new Date(issue.created_at).toLocaleString('zh-CN', { hour12: false });
+
+  const tag = document.createElement('span');
+  tag.className = 'gh-tag';
+  const m = issue.title.match(/^\[(.+?)\]/);
+  tag.textContent = m ? m[1] : '留言';
+
+  head.append(av, who, when, tag);
+  card.append(head);
+
+  const body = document.createElement('div');
+  body.className = 'gh-body';
+  // 去掉正文里的元信息分隔块，只显示留言内容
+  let text = issue.body || '';
+  text = text.replace(/^\*\*称呼：\*\*.*$/m, '')
+             .replace(/^\*\*类型：\*\*.*$/m, '')
+             .replace(/^---$/gm, '')
+             .replace(/<sub>.*?<\/sub>/gs, '')
+             .trim();
+  body.textContent = text || issue.title;
+  card.append(body);
+
+  const open = document.createElement('a');
+  open.className = 'gh-open';
+  open.href = issue.html_url;
+  open.target = '_blank';
+  open.rel = 'noopener';
+  open.textContent = '在 GitHub 上查看 ↗';
+  card.append(open);
+
+  return card;
+}
+
+async function loadIssues() {
+  listEl.innerHTML = '<p class="gh-loading">正在加载留言…</p>';
+  try {
+    const res = await fetch(`${API_URL}?state=open&per_page=50`, {
+      headers: { 'Accept': 'application/vnd.github+json' }
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const issues = await res.json();
+    const list = issues.filter((i) => !i.pull_request);
+
+    listEl.innerHTML = '';
+    if (!list.length) {
+      listEl.innerHTML = '<p class="gh-empty">还没有留言，来写下第一条分享吧。</p>';
+      return;
+    }
+    for (const issue of list) listEl.append(renderIssue(issue));
+  } catch (e) {
+    listEl.innerHTML = '<p class="gh-empty">留言加载失败，请稍后刷新重试。</p>';
+  }
+}
+
+document.getElementById('refresh-comments').addEventListener('click', loadIssues);
+loadIssues();
+</script>
+</body>
+</html>
