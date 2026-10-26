@@ -10,7 +10,7 @@
 <style>
 /* ===== 手记：图文记录 ===== */
 .mem-entry{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:26px;position:relative}
-.mem-head{padding:26px 28px 22px;border-bottom:1px solid var(--line);position:relative}
+.mem-head{padding:40px 28px 22px;border-bottom:1px solid var(--line);position:relative}
 .mem-label{display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.14em;font-weight:800;color:#5b8db8;background:#eaf2f9;border:1px solid #dce6f0;padding:5px 11px;border-radius:999px}
 .mem-label::before{content:"";width:5px;height:5px;border-radius:50%;background:#5b8db8}
 .mem-head h3{font:500 27px/1.4 var(--serif);color:var(--pine);margin:13px 0 9px}
@@ -52,6 +52,57 @@
 
 .mem-note{padding:16px 28px 26px;font-size:13px;color:#4a5b6d;line-height:1.9}
 .mem-note b{color:var(--pine)}
+
+
+/* ===== 装饰 ===== */
+/* 卡片顶部胶带 */
+.mem-tape{position:absolute;top:0;left:40px;width:104px;height:22px;z-index:3;
+  background:linear-gradient(180deg,rgba(205,230,255,.9),rgba(186,217,248,.72));
+  border-left:1px solid rgba(255,255,255,.7);border-right:1px solid rgba(255,255,255,.5);
+  transform:rotate(-1.4deg);box-shadow:0 3px 10px rgba(23,74,126,.11);
+  clip-path:polygon(2% 0,98% 4%,100% 26%,97% 52%,100% 78%,96% 100%,3% 96%,0 72%,3% 46%,0 22%)}
+.mem-tape::after{content:"";position:absolute;left:11px;right:11px;top:52%;height:1px;
+  background:repeating-linear-gradient(90deg,rgba(23,74,126,.16) 0 5px,transparent 5px 11px)}
+
+/* 照片序号角标 */
+.mem-gallery{counter-reset:shot}
+.mem-shot{counter-increment:shot}
+.mem-shot::before{content:counter(shot,decimal-leading-zero);position:absolute;top:9px;right:10px;z-index:2;
+  min-width:22px;height:22px;padding:0 6px;border-radius:999px;
+  background:rgba(255,255,255,.9);color:var(--pine);font:600 10px/22px var(--sans);
+  letter-spacing:.06em;text-align:center;box-shadow:0 1px 5px rgba(10,30,52,.16);
+  opacity:0;transform:translateY(-4px);transition:opacity .25s,transform .25s}
+.mem-shot:hover::before{opacity:1;transform:translateY(0)}
+
+/* 悬停微浮起 */
+.mem-shot{transition:transform .32s cubic-bezier(.2,.7,.3,1)}
+.mem-shot:hover{transform:translateY(-3px);z-index:2}
+.mem-shot:hover::after{box-shadow:inset 0 0 0 2px rgba(23,74,126,.3),0 8px 20px rgba(10,30,52,.13)}
+
+/* 引言块 */
+.mem-quote{position:relative;margin:10px 28px 24px;padding:22px 26px 22px 58px;
+  background:linear-gradient(135deg,#f4f8fc,#eaf2f9);border:1px solid var(--line);border-radius:12px;
+  font:italic 500 17px/1.85 var(--serif);color:#3d5670}
+.mem-quote::before{content:"\201C";position:absolute;left:16px;top:4px;font:400 54px/1 var(--serif);color:#a9c8e2}
+.mem-quote::after{content:"";position:absolute;left:44px;right:26px;bottom:14px;height:1px;
+  background:linear-gradient(90deg,#cfe0f0,transparent)}
+.mem-quote cite{display:block;margin-top:9px;font:400 12px/1.6 var(--sans);font-style:normal;color:#7b8fa5;letter-spacing:.04em}
+
+/* 分节标题（升级） */
+.mem-gallery-note{position:relative;display:flex;align-items:center;gap:12px;margin:4px 28px 6px;
+  padding:15px 0 13px;font-size:12px;color:#8a9bad;letter-spacing:.05em}
+.mem-gallery-note::before,.mem-gallery-note::after{content:"";height:1px;flex:1;
+  background:linear-gradient(90deg,transparent,var(--line))}
+.mem-gallery-note::after{background:linear-gradient(90deg,var(--line),transparent)}
+.mem-gallery-note b{color:var(--pine);font-weight:500;letter-spacing:0;font-size:13px}
+.mem-gallery-note em{font-style:normal;font-size:10px;letter-spacing:.16em;color:#a3b6c8;
+  background:#f4f8fc;border:1px solid var(--line);padding:3px 9px;border-radius:999px}
+
+/* 结束符 */
+.mem-end{display:flex;align-items:center;justify-content:center;gap:7px;padding:4px 0 22px}
+.mem-end i{width:6px;height:6px;background:#bcd4e8;transform:rotate(45deg)}
+.mem-end i:nth-child(2){background:#8fb6d8;width:8px;height:8px}
+.mem-end i:nth-child(3){background:#bcd4e8}
 
 /* 灯箱 */
 .lightbox{position:fixed;inset:0;background:rgba(8,18,30,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
@@ -121,6 +172,7 @@
 
     <article class="mem-entry">
       <div class="mem-head">
+        <span class="mem-tape" aria-hidden="true"></span>
         <span class="mem-deco" aria-hidden="true"><i></i></span>
         <span class="mem-label">CAMPUS DAYS · 班级活动</span>
         <h3>秋日午后，草坪上的游戏时间</h3>
@@ -131,6 +183,13 @@
           <span class="mem-fact">👥 电子5班</span>
         </div>
       </div>
+
+      <p class="mem-gallery-note"><em>PART 01</em><b>草坪上的三圈人</b>　先到的那组负责出题</p>
+
+      <blockquote class="mem-quote">
+        那天没有讲什么大道理，只是把想说的话说了出来。<br>
+        <cite>—— 记于 2026 年 10 月的草坪上</cite>
+      </blockquote>
 
       <div class="mem-gallery" id="gallery">
         <figure class="mem-shot wide" data-full="photos/class-08.jpg" data-cap="远处那个雕塑，也是合影背景">
@@ -172,11 +231,17 @@
         </figure>
       </div>
 
-      <p class="mem-gallery-note"><b>湖边那组</b>　风景最好的位置，总是最先被占</p>
+      <p class="mem-gallery-note"><em>PART 02</em><b>湖边那组</b>　风景最好的位置，总是最先被占</p>
+
+      <p class="mem-note" style="padding-top:2px">
+        湖边那组后来又开了几轮，石头被坐得发亮。等到天色暗下来，大家才陆陆续续往回走 —— 有人在数照片，有人在讨论明天要交的实验报告。
+      </p>
 
       <p class="mem-note">
         <b>关于这组照片：</b>都是那天随手拍的，没有刻意排队，也不算构图完美 —— 但正因为这样，才是那天真正的样子。点开图片可以看大图。
       </p>
+
+      <div class="mem-end" aria-hidden="true"><i></i><i></i><i></i></div>
     </article>
 
     <div class="mem-todo">
