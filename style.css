@@ -22,3 +22,12 @@
 .material-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 11px;font-size:12px;border:1px solid #9ebad2;border-radius:6px;background:#fff;color:var(--pine);cursor:pointer;white-space:nowrap;text-decoration:none;transition:background .15s}
 .material-btn:hover{background:#174a7e;color:#fff;border-color:#174a7e}
 @media(max-width:760px){.material-item{flex-wrap:wrap}.material-actions{width:100%;margin-top:2px}.material-btn{flex:1;justify-content:center}}
+
+/* ===== 学习卡片内的分区入口按钮 ===== */
+.study-entry{display:flex;flex-direction:column;gap:3px;margin-top:18px;padding:12px 14px;border:1px solid #c3d7e8;border-radius:9px;background:#f4f8fc;text-decoration:none;transition:background .15s,border-color .15s}
+.study-entry:hover,.study-entry:focus-visible{background:var(--pine);border-color:var(--pine)}
+.study-entry-label{font-size:12px;font-weight:800;color:var(--pine);letter-spacing:.04em}
+.study-entry-desc{font-size:11px;color:var(--muted);line-height:1.7}
+.study-entry-arrow{font-size:12px;color:var(--pine);margin-top:2px}
+.study-entry:hover .study-entry-label,.study-entry:hover .study-entry-arrow,.study-entry:focus-visible .study-entry-label,.study-entry:focus-visible .study-entry-arrow{color:#fff}
+.study-entry:hover .study-entry-desc,.study-entry:focus-visible .study-entry-desc{color:#d6e6f4}

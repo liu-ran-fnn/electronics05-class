@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#174a7e">
+<meta name="description" content="安徽理工大学电子5班 · 高等数学学习资料区，含分章讲义、章节测试与作业详解。">
+<title>高数资料区 · 安徽理工大学电子5班</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== 高数资料区页面 ===== */
+.mt-hero{background:#eaf2f9;border-bottom:1px solid var(--line);padding:44px 0}
+.mt-hero-inner{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.mt-hero h1{font:500 34px/1.35 var(--serif);color:var(--pine);margin:12px 0 10px}
+.mt-hero p{color:var(--muted);font-size:13px;line-height:1.85;max-width:560px;margin:0}
+.mt-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--pine);text-decoration:none;border:1px solid #9ebad2;border-radius:8px;padding:9px 15px;background:#fff;white-space:nowrap}
+.mt-back:hover{background:var(--pine);color:#fff;border-color:var(--pine)}
+.mt-section{padding:36px 0 44px}
+.mt-group{margin-bottom:34px}
+.mt-group:last-child{margin-bottom:0}
+.mt-group-head{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.mt-group-head h2{font:500 22px var(--serif);color:var(--pine);margin:0}
+.mt-group-head span{font-size:12px;color:var(--muted)}
+.mt-list{display:flex;flex-direction:column;gap:10px}
+.mt-item{display:flex;align-items:center;gap:14px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:10px;transition:border-color .15s,box-shadow .15s}
+.mt-item:hover{border-color:#9ebad2;box-shadow:0 1px 6px rgba(23,74,126,.07)}
+.mt-icon{flex-shrink:0;width:40px;height:40px;border-radius:8px;background:#174a7e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;letter-spacing:.03em}
+.mt-icon.alt{background:#2f6f9e}
+.mt-info{flex:1;min-width:0}
+.mt-name{display:block;font:500 16px var(--serif);color:var(--ink);line-height:1.45}
+.mt-meta{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+.mt-badge{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:400;letter-spacing:.02em;vertical-align:2px}
+.mt-badge.rel{background:#e1f5ee;color:#0f6e56;border:1px solid #9fe1cb}
+.mt-badge.prac{background:#eaf2f9;color:#305d85;border:1px solid #b9d2e8}
+.mt-actions{display:flex;gap:8px;flex-shrink:0}
+.mt-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;font-size:13px;border:1px solid #9ebad2;border-radius:7px;background:#fff;color:var(--pine);cursor:pointer;white-space:nowrap;text-decoration:none;transition:background .15s,color .15s}
+.mt-btn:hover{background:var(--pine);color:#fff;border-color:var(--pine)}
+.mt-btn.primary{background:var(--pine);color:#fff;border-color:var(--pine)}
+.mt-btn.primary:hover{background:#123a63}
+.mt-note{background:#f4f8fc;border:1px solid var(--line);border-radius:9px;padding:14px 17px;font-size:12px;color:var(--muted);line-height:1.8;margin-top:26px}
+.mt-note b{color:var(--pine)}
+.mt-tip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:30px}
+.mt-tip div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.mt-tip strong{display:block;font:500 15px var(--serif);color:var(--pine);margin-bottom:6px}
+.mt-tip p{margin:0;font-size:12px;color:var(--muted);line-height:1.8}
+@media(max-width:860px){.mt-tip{grid-template-columns:1fr}}
+@media(max-width:760px){.mt-hero{padding:32px 0}.mt-hero h1{font-size:27px}.mt-item{flex-wrap:wrap;gap:10px}.mt-actions{width:100%}.mt-btn{flex:1;justify-content:center}.mt-icon{width:34px;height:34px}}
+</style>
+</head>
+<body id="top">
+<header class="topbar wrap">
+  <a class="brand" href="index.html" aria-label="返回首页"><span class="seal">电5</span><span>安徽理工大学 · 电子5班</span></a>
+  <nav class="nav" aria-label="主导航">
+    <a href="about.html">班级文化</a>
+    <a href="learn.html">学习共享</a>
+    <a href="journal.html">班级手记</a>
+    <a href="gather.html">匿名树洞</a>
+    <a class="nav-cta" href="index.html">返回首页 ↗</a>
+  </nav>
+</header>
+<main>
+<section class="mt-hero">
+  <div class="wrap mt-hero-inner">
+    <div>
+      <div class="eyebrow">MATH / CALCULUS ARCHIVE</div>
+      <h1>高数资料区</h1>
+      <p>上册分章讲义、章节测试与作业详解，按章节顺序整理。建议先看讲义把定义和定理串起来，再做测试，最后对照作业详解复盘思路。</p>
+    </div>
+    <a class="mt-back" href="learn.html">← 返回学习共享</a>
+  </div>
+</section>
+
+<section class="mt-section">
+  <div class="wrap">
+    <div class="mt-tip">
+      <div>
+        <strong>先看讲义</strong>
+        <p>每章一份学生版讲义，打印版排版，重点公式和例题都在里面。</p>
+      </div>
+      <div>
+        <strong>再动笔做</strong>
+        <p>第一、二章测试卷可直接打印，限时做完再对答案。</p>
+      </div>
+      <div>
+        <strong>最后复盘</strong>
+        <p>作业详解按题给出步骤，卡住的题值得对照着再推一遍。</p>
+      </div>
+    </div>
+
+    <div class="mt-group">
+      <div class="mt-group-head">
+        <h2>分章讲义</h2>
+        <span>高数上册 · 学生版打印稿 · 共 6 章</span>
+      </div>
+      <div class="mt-list">
+        <div class="mt-item">
+          <span class="mt-icon" aria-hidden="true">PDF</span>
+          <span class="mt-info">
+            <span class="mt-name">第 1 章　函数、极限与连续<span class="mt-badge rel">基础</span></span>
+            <span class="mt-meta">812 KB · 函数性质、数列与函数极限、连续性与间断点</span>
+          </span>
+          <span class="mt-actions">
+            <a class="mt-btn" href="materials/math/math-ch1.pdf" target="_blank" rel="noopener">查看</a>
+            <a class="mt-btn primary" href="materials/math/math-ch1.pdf" download>下载</a>
+          </span>
+        </div>
+        <div class="mt-item">
+          <span class="mt-icon" aria-hidden="true">PDF</span>
+          <span class="mt-info">
+            <span class="mt-name">第 2 章　导数与微分</span>
+            <span class="mt-meta">152 KB · 导数定义、求导法则、高阶导数与微分</span>
+          </span>
+          <span class="mt-actions">
+            <a class="mt-btn" href="materials/math/math-ch2.pdf" target="_blank" rel="noopener">查看</a>
+            <a class="mt-btn primary" href="materials/math/math-ch2.pdf" download>下载</a>
+          </span>
+        </div>
+        <div class="mt-item">
+          <span class="mt-icon" aria-hidden="true">PDF</span>
+          <span class="mt-info">
+            <span class="mt-name">第 3 章　微分中值定理与导数应用</span>
+            <span class="mt-meta">396 KB · 中值定理、洛必达法则、单调性与极值、凹凸性</span>
+          </span>
+          <span class="mt-actions">
+            <a class="mt-btn" href="materials/math/math-ch3.pdf" target="_blank" rel="noopener">查看</a>
+            <a class="mt-btn primary" href="materials/math/math-ch3.pdf" download>下载</a>
+          </span>
+        </div>
+        <div class="mt-item">
+          <span class="mt-icon" aria-hidden="true">PDF</span>
+          <span class="mt-info">
+            <span class="mt-name">第 4 章　不定积分与定积分</span>
+            <span class="mt-meta">228 KB · 原函数、换元与分部积分、定积分性质与计算</span>
+          </span>
+          <span class="mt-actions">
+            <a class="mt-btn" href="materials/math/math-ch4.pdf" target="_blank" rel="noopener">查看</a>
+            <a class="mt-btn primary" href="materials/math/math-ch4.pdf" download>下载</a>
+          </span>
+        </div>
+        <div class="mt-item">
+          <span class="mt-icon" aria-hidden="true">PDF</span>
+          <span class="mt-info">
+            <span class="mt-name">第 5 章　定积分的应用</span>
+            <span class="mt-meta">636 KB · 面积、体积、弧长与物理应用</span>
+          </span>
+          <span class="mt-actions">
+            <a class="mt-btn" href="materials/math/math-ch5.pdf" target="_blank" rel="noopener">查看</a>
+            <a class="mt-btn primary" href="materials/math/math-ch5.pdf" download>下载</a>
+          </span>
+        </div>
+        <div class="mt-item">
+          <span class="mt-icon" aria-hidden="true">PDF</span>
+          <span class="mt-info">
+            <span class="mt-name">第 6 章　常微分方程</span>
+            <span class="mt-meta">136 KB · 可分离变量、一阶线性方程与二阶常系数方程</span>
+          </span>
+          <span class="mt-actions">
+            <a class="mt-btn" href="materials/math/math-ch6.pdf" target="_blank" rel="noopener">查看</a>
+            <a class="mt-btn primary" href="materials/math/math-ch6.pdf" download>下载</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-group">
+      <div class="mt-group-head">
+        <h2>练习与复盘</h2>
+        <span>章节测试 · 作业详解</span>
+      </div>
+      <div class="mt-list">
+        <div class="mt-item">
+          <span class="mt-icon alt" aria-hidden="true">PDF</span>
+          <span class="mt-info">
+            <span class="mt-name">高数第一、二章测试<span class="mt-badge prac">限时练习</span></span>
+            <span class="mt-meta">80 KB · 极限与导数部分综合测试卷，建议 90 分钟内完成</span>
+          </span>
+          <span class="mt-actions">
+            <a class="mt-btn" href="materials/math/math-ch1-2-test.pdf" target="_blank" rel="noopener">查看</a>
+            <a class="mt-btn primary" href="materials/math/math-ch1-2-test.pdf" download>下载</a>
+          </span>
+        </div>
+        <div class="mt-item">
+          <span class="mt-icon alt" aria-hidden="true">PDF</span>
+          <span class="mt-info">
+            <span class="mt-name">高数上部分作业详解<span class="mt-badge rel">含解题步骤</span></span>
+            <span class="mt-meta">348 KB · 上册部分课后作业的详细解答与思路说明</span>
+          </span>
+          <span class="mt-actions">
+            <a class="mt-btn" href="materials/math/math-homework-solutions.pdf" target="_blank" rel="noopener">查看</a>
+            <a class="mt-btn primary" href="materials/math/math-homework-solutions.pdf" download>下载</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-note">
+      <b>使用建议：</b>“查看”会在新标签页打开，手机上可直接用浏览器阅读；“下载”保存到本地后可离线打印。
+      讲义是学生版打印稿，页面留白较多，适合直接在上面做批注。
+    </p>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap footer-row">
+    <div>
+      <div class="footer-name">安徽理工大学 · 电子5班</div>
+      <small>相侵相碍，也彼此照亮。　|　班级文化与学习分享空间</small>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">首页</a>
+      <a href="about.html">班级文化</a>
+      <a href="learn.html">学习共享</a>
+      <a href="journal.html">班级手记</a>
+      <a href="gather.html">匿名树洞</a>
+    </div>
+    <a class="backtop" href="#top" aria-label="回到顶部">↑</a>
+  </div>
+</footer>
+</body>
+</html>
